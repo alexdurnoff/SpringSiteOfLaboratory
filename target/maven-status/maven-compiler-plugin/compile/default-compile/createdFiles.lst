@@ -1,0 +1,8 @@
+ru/durnov/config/SpringConfig.class
+ru/durnov/config/AppInitializer.class
+ru/durnov/config/WebConfig.class
+ru/durnov/controller/LaboratoryController.class
+ru/durnov/SiteApp.class
+ru/durnov/dao/LaboratoryDao.class
+ru/durnov/service/LaboratoryService.class
+ru/durnov/service/TestBean.class
