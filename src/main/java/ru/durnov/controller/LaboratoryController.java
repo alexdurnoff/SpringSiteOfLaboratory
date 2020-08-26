@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class LaboratoryController {
-    @GetMapping("/")
+    @GetMapping("/index")
     public String base(){
         return "base";
     }
