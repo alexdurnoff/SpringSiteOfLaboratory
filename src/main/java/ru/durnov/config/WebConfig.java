@@ -5,10 +5,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import ru.durnov.dao.DeviceDaOImpl;
+
+import javax.sql.DataSource;
+import java.sql.SQLException;
 
 @Configuration
 @EnableWebMvc
@@ -45,4 +51,12 @@ public class WebConfig implements WebMvcConfigurer{
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
     }
+
+    @Bean
+    public DeviceDaOImpl getDeviceDaoImpl() throws SQLException {
+        DeviceDaOImpl deviceDaO = new DeviceDaOImpl();
+        return deviceDaO;
+    }
+
+
 }
