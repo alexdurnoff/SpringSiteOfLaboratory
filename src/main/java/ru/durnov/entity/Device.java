@@ -60,7 +60,7 @@ public class Device {
         this.dateOfVerification = dateOfVerification;
     }
 
-    public String getDateOfNextVerification() {
+    public String getDateOfNextVerification(String date_of_next_verification) {
         return dateOfNextVerification;
     }
 

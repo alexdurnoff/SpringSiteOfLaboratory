@@ -5,15 +5,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
-import ru.durnov.dao.DeviceDaOImpl;
+import ru.durnov.dao.DeviceDaOISqlite;
 
-import javax.sql.DataSource;
 import java.sql.SQLException;
 
 @Configuration
@@ -53,8 +50,8 @@ public class WebConfig implements WebMvcConfigurer{
     }
 
     @Bean
-    public DeviceDaOImpl getDeviceDaoImpl() throws SQLException {
-        DeviceDaOImpl deviceDaO = new DeviceDaOImpl();
+    public DeviceDaOISqlite getDeviceDaoImpl() throws SQLException {
+        DeviceDaOISqlite deviceDaO = new DeviceDaOISqlite();
         return deviceDaO;
     }
 
