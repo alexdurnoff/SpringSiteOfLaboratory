@@ -2,6 +2,7 @@ package ru.durnov.test;
 
 import org.junit.*;
 import ru.durnov.dao.DeviceDaOISqlite;
+import ru.durnov.entity.Build;
 import ru.durnov.entity.Calculate;
 import ru.durnov.entity.Device;
 
@@ -45,6 +46,23 @@ public class TestDaoSqlite {
             System.out.println(calculate.getTitle());
             System.out.println(calculate.getUnit());
             System.out.println(calculate.getCoast());
+        }
+    }
+
+    @Test
+    public void testBuildFindAll() throws SQLException {
+        System.out.println("Starting test Builds");
+        DeviceDaOISqlite daO = new DeviceDaOISqlite();
+        ArrayList<Build> list = (ArrayList<Build>) daO.findAllBuilds();
+        int len = list.size();
+        System.out.println(len);
+        Assert.assertNotEquals(len, 0);
+        for (Build build: list){
+           System.out.println(build.getTitle());
+            System.out.println(build.getAdress());
+            System.out.println(build.getDescription());
+            System.out.println(build.getEmployer());
+            System.out.println(build.getDate_end_of_build());
         }
     }
 

@@ -62,6 +62,11 @@ public class DeviceDaOISqlite implements LaboratoryDao{
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 Build build = new Build();
+                build.setTitle(resultSet.getString("title"));
+                build.setAdress(resultSet.getString("adress"));
+                build.setDescription(resultSet.getString("description"));
+                build.setEmployer(resultSet.getString("employer"));
+                build.setDate_end_of_build(resultSet.getString("date_end_of_build"));
                 builds.add(build);
             }
 
@@ -87,10 +92,12 @@ public class DeviceDaOISqlite implements LaboratoryDao{
             connection = DriverManager.getConnection(this.url, this.user, this.password);
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM calculate_calculate";
-            //ResultSet resultSet = statement.executeQuery("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name");
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 Calculate calculate = new Calculate();
+                calculate.setTitle(resultSet.getString("title"));
+                calculate.setUnit(resultSet.getString("unit"));
+                calculate.setCoast(resultSet.getInt("coast"));
                 calculates.add(calculate);
             }
 
