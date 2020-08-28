@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hamcrest-generator1">
+    <CLASSES>
+      <root url="jar:///usr/share/hamcrest-generator-1.3/lib/hamcrest-generator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
