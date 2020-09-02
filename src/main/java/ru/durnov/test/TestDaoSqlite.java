@@ -1,6 +1,7 @@
 package ru.durnov.test;
 
 import org.junit.*;
+import org.junit.jupiter.api.Test;
 import ru.durnov.dao.DeviceDaOISqlite;
 import ru.durnov.entity.Build;
 import ru.durnov.entity.Calculate;
@@ -8,8 +9,6 @@ import ru.durnov.entity.Device;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import static org.hamcrest.CoreMatchers.is;
 
 public class TestDaoSqlite {
     @Test
@@ -19,7 +18,7 @@ public class TestDaoSqlite {
         ArrayList<Device> list = (ArrayList<Device>) daO.findAllDevices();
         int len = list.size();
         System.out.println(len);
-        Assert.assertNotEquals(len, 0);
+        Assert.assertNotEquals(len,0);
     }
 
     @Test
@@ -28,7 +27,7 @@ public class TestDaoSqlite {
         DeviceDaOISqlite daOISqlite = new DeviceDaOISqlite();
         ArrayList<String> list = daOISqlite.getTableNames();
         int len = list.size();
-        Assert.assertNotEquals(len, 0);
+        Assert.assertNotEquals(len,0);
         for (String name: list){
             System.out.println(name);
         }
@@ -41,7 +40,7 @@ public class TestDaoSqlite {
         ArrayList<Calculate> list = (ArrayList<Calculate>) daO.findAllCalculates();
         int len = list.size();
         System.out.println(len);
-        Assert.assertNotEquals(len, 0);
+        Assert.assertNotEquals(len,0);
         for (Calculate calculate: list){
             System.out.println(calculate.getTitle());
             System.out.println(calculate.getUnit());
@@ -56,7 +55,7 @@ public class TestDaoSqlite {
         ArrayList<Build> list = (ArrayList<Build>) daO.findAllBuilds();
         int len = list.size();
         System.out.println(len);
-        Assert.assertNotEquals(len, 0);
+        Assert.assertNotEquals(len,0);
         for (Build build: list){
            System.out.println(build.getTitle());
             System.out.println(build.getAdress());

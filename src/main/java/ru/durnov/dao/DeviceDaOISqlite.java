@@ -5,6 +5,7 @@ import ru.durnov.entity.Build;
 import ru.durnov.entity.Calculate;
 import ru.durnov.entity.Device;
 
+import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -32,8 +33,8 @@ public class DeviceDaOISqlite implements LaboratoryDao{
                 device.setDescription(resultSet.getString("description"));
                 device.setMeasurementRange(resultSet.getString("measurement_range"));
                 device.setDateOfVerification(resultSet.getString("date_of_verification"));
-                device.getDateOfNextVerification(resultSet.getString("date_of_next_verification"));
-                System.out.println(resultSet.getString("image_of_devices"));
+                device.setDateOfNextVerification(resultSet.getString("date_of_next_verification"));
+                device.setImageOfDevice(new File("image_of_devices").toPath());
                 devices.add(device);
             }
 

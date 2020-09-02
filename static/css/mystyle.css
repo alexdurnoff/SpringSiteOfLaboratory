@@ -1,0 +1,78 @@
+body { color: black;
+       background: SteelBlue;
+       text-align: justify;
+       font-size: 18px;
+       width: 90%;
+}
+
+.site_navigator {
+    text-align: center;
+    color: white;
+}
+
+.nav{
+    color: white;
+    text-align: center;
+    margin 0 auto;
+}
+
+.container {
+    width:80%;
+    max-width:900px;
+    text-align: justify;
+    text-indent: 30px;
+    font-family:serif;
+    font-size: 16px;
+    display: block;
+    margin: auto 20% auto 20%;
+}
+.responsive {
+    display: block;
+    margin: auto;
+    width: 900px;
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+    text-size:28px;
+}
+
+.site_link{
+    color: black;
+    margin-left: 20px;
+    font-size:16px;
+}
+
+.myfield{
+    width: 100px;
+}
+
+@media (max-width: 420px){
+    .responsive {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: auto;
+    }
+
+    body {
+       color: black;
+       background: SteelBlue;
+       text-align: justify;
+       font-size: 16px;
+       width: 80%;
+    }
+}
+
+@media (max-width: 760px){
+    .responsive {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: auto;
+    }
+}
+
+
+
