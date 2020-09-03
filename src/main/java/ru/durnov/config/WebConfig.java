@@ -11,6 +11,7 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import ru.durnov.dao.DeviceDaOISqlite;
 
+import javax.servlet.ServletContext;
 import java.sql.SQLException;
 
 @Configuration
@@ -18,10 +19,13 @@ import java.sql.SQLException;
 @ComponentScan("ru.durnov.controller")
 public class WebConfig implements WebMvcConfigurer{
     private final ApplicationContext applicationContext;
+    private final ServletContext servletContext;
+
 
     @Autowired
-    public WebConfig(ApplicationContext applicationContext) {
+    public WebConfig(ApplicationContext applicationContext, ServletContext servletContext) {
         this.applicationContext = applicationContext;
+        this.servletContext = servletContext;
     }
 
     @Bean
@@ -54,6 +58,5 @@ public class WebConfig implements WebMvcConfigurer{
         DeviceDaOISqlite deviceDaO = new DeviceDaOISqlite();
         return deviceDaO;
     }
-
 
 }
