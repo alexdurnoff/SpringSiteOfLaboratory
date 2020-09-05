@@ -5,7 +5,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jca.context.SpringContextResourceAdapter;
 import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.resource.PathResourceResolver;
+import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -58,5 +61,7 @@ public class WebConfig implements WebMvcConfigurer{
         DeviceDaOISqlite deviceDaO = new DeviceDaOISqlite();
         return deviceDaO;
     }
+
+
 
 }

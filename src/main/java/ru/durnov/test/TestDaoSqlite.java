@@ -1,7 +1,7 @@
 package ru.durnov.test;
 
 import org.junit.*;
-//import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
 import ru.durnov.dao.DeviceDaOISqlite;
 import ru.durnov.entity.Build;
 import ru.durnov.entity.Calculate;

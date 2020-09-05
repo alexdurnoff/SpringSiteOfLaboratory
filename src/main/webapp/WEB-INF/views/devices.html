@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th = "http://www.thymeleaf.org">
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th = "http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Наши приборы</title>
 </head>
 <body th:insert="navigator">
+
+    <div th:each="device:${devices}">
+        <span th:text="${device.name}"></span><br>
+    </div>
 
 </body>
 </html>
