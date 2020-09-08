@@ -5,22 +5,17 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.jca.context.ResourceAdapterApplicationContext;
-import org.springframework.jca.context.SpringContextResourceAdapter;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.resource.PathResourceResolver;
-import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
-import ru.durnov.dao.DeviceDaOISqlite;
 
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
-import java.sql.SQLException;
+
 
 @Configuration
 @EnableWebMvc
@@ -57,6 +52,23 @@ public class WebConfig implements WebMvcConfigurer{
         return templateEngine;
     }
 
+    @Bean
+    public JdbcTemplate jdbcTemplate(){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate.setDataSource(dataSource());
+        return jdbcTemplate;
+    }
+
+    @Bean
+    public DataSource dataSource(){
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setUrl("jdbc:sqlite:db/db.sqlite3");
+        dataSource.setUsername("alexej");
+        dataSource.setPassword("fvngz5BYgh");
+        dataSource.setDriverClassName("org.sqlite.JDBC");
+        return dataSource;
+    }
+
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry){
@@ -81,14 +93,7 @@ public class WebConfig implements WebMvcConfigurer{
                 .addResourceLocations("/WEB-INF/").setCachePeriod(31556926);
     }
 
-    /**
-     * Configure a handler to delegate unhandled requests by forwarding to the
-     * Servlet container's "default" servlet. A common use case for this is when
-     * the {@link DispatcherServlet} is mapped to "/" thus overriding the
-     * Servlet container's default handling of static resources.
-     *
-     * @param configurer
-     */
+
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
