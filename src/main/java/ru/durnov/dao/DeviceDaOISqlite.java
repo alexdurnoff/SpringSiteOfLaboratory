@@ -9,6 +9,8 @@ import ru.durnov.entity.Device;
 
 
 import javax.sql.DataSource;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
 
 
@@ -28,8 +30,17 @@ public class DeviceDaOISqlite implements LaboratoryDao{
         return jdbc.query("SELECT * FROM devices_devices", this::mapRowToDevice);
     }
 
-    public Device mapRowToDevice(ResultSet resultSet, int rowNumber){
-        return new Device();
+    public Device mapRowToDevice(ResultSet resultSet, int rowNumber) throws SQLException {
+        Device device = new Device();
+        device.setTitle(resultSet.getString("title"));
+        device.setAccuracyClass(resultSet.getString("accuracy_Class"));
+        device.setDateOfNextVerification("date_of_nextVerification");
+        device.setDateOfVerification("date_of_verification");
+        device.setDescription("description");
+        device.setMeasurementRange("measurementRange");
+        String path = resultSet.getString("image_of_devices");
+        device.setImageOfDevice(Paths.get(path));
+        return device;
     }
 
     public Build mapRowToBuild(ResultSet resultSet, int rownumber){

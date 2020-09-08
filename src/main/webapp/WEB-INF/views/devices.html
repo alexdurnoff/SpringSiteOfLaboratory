@@ -7,10 +7,11 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Наши приборы</title>
 </head>
-<body th:insert="navigator">
+<body>
 
+	<div th:insert="navigator"></div><br>
 	<div th:each="device:${devices}">
-		<span th:text="${device.name}"></span><br>
+		<span th:text="${device.title}"></span><br>
 	</div>
 
 </body>

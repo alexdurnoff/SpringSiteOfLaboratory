@@ -27,7 +27,11 @@ public class DeviceController {
     @GetMapping
     public String showDevices(Model model){
         Iterable<Device> devices = deviceDaO.findAllDevices();
-        model.addAttribute("devices", devices);
+        ArrayList<Device> deviceArrayList = new ArrayList<>();
+        for (Device device : devices){
+            deviceArrayList.add(device);
+        }
+        model.addAttribute("devices", deviceArrayList);
         return "devices";
     }
 
