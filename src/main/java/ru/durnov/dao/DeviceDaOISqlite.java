@@ -5,6 +5,11 @@ import ru.durnov.entity.Build;
 import ru.durnov.entity.Calculate;
 import ru.durnov.entity.Device;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,7 +19,10 @@ public class DeviceDaOISqlite implements LaboratoryDao{
     private final String url = "jdbc:sqlite:db/db.sqlite3";
     private final String user = "alexej";
     private final String password = "fvngz5BYgh";
+    private final Logger logger;
     public DeviceDaOISqlite(){
+        this.logger = LoggerFactory.getLogger(this.getClass());
+        logger.info("i'm created!");
     }
 
     @Override
@@ -24,6 +32,7 @@ public class DeviceDaOISqlite implements LaboratoryDao{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(this.url, this.user, this.password);
+            logger.info(connection.toString());
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM devices_devices";
             ResultSet resultSet = statement.executeQuery(sql);

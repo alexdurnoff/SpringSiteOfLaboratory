@@ -1,6 +1,7 @@
 package ru.durnov.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +17,16 @@ import java.util.ArrayList;
 @RequestMapping("/devices")
 public class DeviceController {
 
+    private final DeviceDaOISqlite deviceDaO;
+
+    @Autowired
+    public DeviceController(DeviceDaOISqlite deviceDaO) {
+        this.deviceDaO = deviceDaO;
+    }
+
     @GetMapping
     public String showDevices(Model model){
-        DeviceDaOISqlite daOISqlite = new DeviceDaOISqlite();
-        DeviceDaOISqlite daO = new DeviceDaOISqlite();
-        ArrayList<Device> devices = (ArrayList<Device>) daO.findAllDevices();
+        ArrayList<Device> devices = (ArrayList<Device>) deviceDaO.findAllDevices();
         System.out.println(devices.size());
         model.addAttribute("devices", devices);
         return "devices";
