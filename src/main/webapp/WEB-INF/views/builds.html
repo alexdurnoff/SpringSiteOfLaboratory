@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Наши объекты</title>
+</head>
+<body>
+
+	<div th:insert="navigator"></div><br>
+	<div th:each="build:${builds}">
+		<span th:text="${build.title}"></span><br>
+		<span th:text="${build.adress}"></span><br>
+		<span th:text="${build.employer}"></span><br>
+		<span th:text="${build.description}"></span><br>
+		<span th:text="${build.date_end_of_build}"></span><br>
+		<img alt="Вот говно..." width="600px" th:src="@{/resources/images/${build.image_of_build}}">
+	</div>
+
+
+</body>
+</html>

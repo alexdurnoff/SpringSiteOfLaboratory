@@ -15,11 +15,6 @@ public class MainController {
         return "base";
     }
 
-    @GetMapping("builds")
-    public String builds(){
-        return "builds";
-    }
-
     @GetMapping("employers")
     public String employers(){
         return "employes";

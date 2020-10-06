@@ -12,7 +12,12 @@
 	<div th:insert="navigator"></div><br>
 	<div th:each="device:${devices}">
 		<span th:text="${device.title}"></span><br>
+		<span th:text="${device.description}"></span><br>
+		<span th:text="${device.accuracyClass}"></span><br>
+		<span th:text="${device.measurementRange}"></span><br>
+		<span th:text="${device.dateOfVerification}"></span><br>
+		<span th:text="${device.dateOfNextVerification}"></span><br>
+		<img alt="Вот говно..." width="600px" th:src="${device.imageOfDevice}">
 	</div>
-
 </body>
 </html>

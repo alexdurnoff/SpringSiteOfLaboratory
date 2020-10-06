@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.durnov.dao.DeviceDaOISqlite;
+import ru.durnov.dao.DaOISqliteImplementation;
 import ru.durnov.entity.Device;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,21 +17,17 @@ import java.util.ArrayList;
 @RequestMapping("/devices")
 public class DeviceController {
 
-    private final DeviceDaOISqlite deviceDaO;
+    private final DaOISqliteImplementation deviceDaO;
 
     @Autowired
-    public DeviceController(DeviceDaOISqlite deviceDaO) {
+    public DeviceController(DaOISqliteImplementation deviceDaO) {
         this.deviceDaO = deviceDaO;
     }
 
     @GetMapping
     public String showDevices(Model model){
         Iterable<Device> devices = deviceDaO.findAllDevices();
-        ArrayList<Device> deviceArrayList = new ArrayList<>();
-        for (Device device : devices){
-            deviceArrayList.add(device);
-        }
-        model.addAttribute("devices", deviceArrayList);
+        model.addAttribute("devices", devices);
         return "devices";
     }
 

@@ -8,7 +8,7 @@ public class Build {
     private String description;
     private String date_end_of_build;
     private String employer;
-    private Path image_of_build;
+    private String image_of_build;
 
     public Build(){
 
@@ -54,12 +54,13 @@ public class Build {
         this.employer = employer;
     }
 
-    public Path getImage_of_build() {
+    public String getImage_of_build() {
         return image_of_build;
     }
 
-    public void setImage_of_build(Path image_of_build) {
+    public void setImage_of_build(String image_of_build) {
         this.image_of_build = image_of_build;
     }
+
 }
 

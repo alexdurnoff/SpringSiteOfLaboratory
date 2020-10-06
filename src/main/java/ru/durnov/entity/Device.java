@@ -9,8 +9,8 @@ public class Device {
     private String measurementRange;
     private String dateOfVerification;
     private String dateOfNextVerification;
-    private Path imageOfDevice;
-    private Path sertificate;
+    private String imageOfDevice;
+    private String sertificate;
 
     public Device() {
     }
@@ -60,7 +60,7 @@ public class Device {
         this.dateOfVerification = dateOfVerification;
     }
 
-    public String getDateOfNextVerification(String date_of_next_verification) {
+    public String getDateOfNextVerification() {
         return dateOfNextVerification;
     }
 
@@ -68,19 +68,19 @@ public class Device {
         this.dateOfNextVerification = dateOfNextVerification;
     }
 
-    public Path getImageOfDevice() {
+    public String getImageOfDevice() {
         return imageOfDevice;
     }
 
-    public void setImageOfDevice(Path imageOfDevice) {
+    public void setImageOfDevice(String imageOfDevice) {
         this.imageOfDevice = imageOfDevice;
     }
 
-    public Path getSertificate() {
+    public String getSertificate() {
         return sertificate;
     }
 
-    public void setSertificate(Path sertificate) {
+    public void setSertificate(String sertificate) {
         this.sertificate = sertificate;
     }
 }
